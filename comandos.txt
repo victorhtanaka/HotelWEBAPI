@@ -1,2 +1,3 @@
 dotnet new webapi
 dotnet dev-certs https --trust
+testedrj
