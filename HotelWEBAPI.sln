@@ -2,7 +2,7 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webAPI2", "webAPI2.csproj", "{67DCD93C-39E3-4341-85C2-459F7600F69A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelWEBAPI", "HotelWEBAPI.csproj", "{67DCD93C-39E3-4341-85C2-459F7600F69A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

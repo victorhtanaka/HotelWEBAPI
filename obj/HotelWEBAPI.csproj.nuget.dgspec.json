@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\webAPI2.csproj": {}
+    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\HotelWEBAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\webAPI2.csproj": {
+    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\HotelWEBAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\webAPI2.csproj",
-        "projectName": "webAPI2",
-        "projectPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\webAPI2.csproj",
+        "projectUniqueName": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\HotelWEBAPI.csproj",
+        "projectName": "HotelWEBAPI",
+        "projectPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\HotelWEBAPI.csproj",
         "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\obj\\",
+        "outputPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,25 +42,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
               "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools.DotNet": {
-              "target": "Package",
-              "version": "[2.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
