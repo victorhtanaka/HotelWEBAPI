@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace webAPI2
 {
@@ -7,7 +8,7 @@ namespace webAPI2
         public DbSet<MEmployee> mEmployees {get; set;} = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\;Database=Sextou;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+            OptionsBuilder.UseSqlServer(@"Server=.\;Database=Sextou;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
         }
     }
 }
