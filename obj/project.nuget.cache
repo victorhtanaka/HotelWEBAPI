@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n5Qqoi5Sn2n4HSvB3Irac0qV1epS7b/uFERuNuSA5OnrQgKr05/8pcmUbFkAN8gJaVKoJjEdjWG0lCWJD1ynBg==",
+  "dgSpecHash": "CRU+CEIJ2Oa/pvNhonYVhTpf75qSQ5luvYLno69+BsSPeV5d+dNRGsUBcjuRkiVFUAiyDKLbkU2kj9KDVH5tnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI\\webAPI2.csproj",
+  "projectFilePath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\HotelWEBAPI-1\\webAPI2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
