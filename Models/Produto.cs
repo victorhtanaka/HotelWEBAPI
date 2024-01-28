@@ -6,7 +6,8 @@ namespace HotelWEBAPI.Models
     public class Produto
     {
         [Key]
-        public int CodProduto { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? CodProduto { get; set; }
 
         [Required]
         [StringLength(40)]
