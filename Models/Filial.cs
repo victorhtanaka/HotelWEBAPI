@@ -7,7 +7,6 @@ namespace HotelWEBAPI
         [Key]
         public int CodFilial { get; set; }
 
-        [Required]
         [StringLength(50)]
         public required string NomeFilial { get; set; }
 

@@ -7,7 +7,6 @@ namespace HotelWEBAPI
         [Key]
         public int CodServico { get; set; }
 
-        [Required]
         [StringLength(150)]
         public required string DescServico { get; set; }
 
