@@ -17,9 +17,9 @@ namespace HotelWEBAPI
         public DbSet<PratoConta> PratosContas { get; set; } = null!;
         public DbSet<ServicoConta> ServicosContas { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            builder.UseSqlServer(@"Server=.\;Database=HotelWEBAPI;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Server=.\;Database=HotelWEBAPI;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
         }
     }
 }
