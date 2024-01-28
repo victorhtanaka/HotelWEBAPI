@@ -13,7 +13,7 @@ namespace HotelWEBAPI
         public bool StatusReserva { get; set; }
 
         [StringLength(30)]
-        public string TipoPagamento { get; set; }
+        public string? TipoPagamento { get; set; }
 
         public DateTime DataCheckout { get; set; }
 
@@ -27,8 +27,7 @@ namespace HotelWEBAPI
 
         [ForeignKey("Funcionario")]
         public int FkFuncionarioCodFuncionario { get; set; }
-
-        [Key]
+        
         public int CodConta { get; set; }
 
         public bool Pago { get; set; }

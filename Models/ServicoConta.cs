@@ -10,9 +10,6 @@ namespace HotelWEBAPI
         [ForeignKey("ReservaConta")]
         public int FkReservaContaCodReserva { get; set; }
 
-        [ForeignKey("ReservaConta")]
-        public int FkReservaContaCodConta { get; set; }
-
         public virtual Servico? Servico { get; set; }
 
         public virtual ReservaConta? ReservaConta { get; set; }

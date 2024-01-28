@@ -7,7 +7,6 @@ namespace HotelWEBAPI
         [Key]
         public int NumQuarto { get; set; }
 
-        [Required]
         [StringLength(15)]
         public string? TipoQuarto { get; set; }
 
