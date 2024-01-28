@@ -4,8 +4,13 @@ namespace HotelWEBAPI
 {
     public class Prato
     {
+        [Key]
         public int CodPrato { get; set; }
-        public string NomePrato { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public required string NomePrato { get; set; }
+
         public decimal ValorPrato { get; set; }
     }
 }

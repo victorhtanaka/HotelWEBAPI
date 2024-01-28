@@ -1,16 +1,27 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelWEBAPI
 {
     public class Funcionario
     {
+        [Key]
         public int CodFuncionario { get; set; }
-        public string CargoFuncionario { get; set; }
-        public string NomeFuncionario { get; set; }
-        public string TelFuncionario { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string? CargoFuncionario { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string? NomeFuncionario { get; set; }
+
+        [StringLength(16)]
+        public string? TelFuncionario { get; set; }
+
+        [ForeignKey("Filial")]
         public int FkFilialCodFilial { get; set; }
 
-        public Filial Filial { get; set; }
+        public virtual Filial? Filial { get; set; }
     }
-
 }
