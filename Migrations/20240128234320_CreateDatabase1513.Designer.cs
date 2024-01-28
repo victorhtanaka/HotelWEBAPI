@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelWEBAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20240128224519_Update-1")]
-    partial class Update1
+    [Migration("20240128234320_CreateDatabase1513")]
+    partial class CreateDatabase1513
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -170,11 +170,11 @@ namespace HotelWEBAPI.Migrations
 
             modelBuilder.Entity("HotelWEBAPI.Models.Produto", b =>
                 {
-                    b.Property<int>("CodProduto")
+                    b.Property<int?>("CodProduto")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodProduto"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CodProduto"));
 
                     b.Property<string>("NomeProduto")
                         .IsRequired()

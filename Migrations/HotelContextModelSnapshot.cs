@@ -167,11 +167,11 @@ namespace HotelWEBAPI.Migrations
 
             modelBuilder.Entity("HotelWEBAPI.Models.Produto", b =>
                 {
-                    b.Property<int>("CodProduto")
+                    b.Property<int?>("CodProduto")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodProduto"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CodProduto"));
 
                     b.Property<string>("NomeProduto")
                         .IsRequired()
