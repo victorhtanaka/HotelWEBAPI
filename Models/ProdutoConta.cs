@@ -5,6 +5,7 @@ namespace HotelWEBAPI
 {
     public class ProdutoConta
     {
+        [Key]
         [ForeignKey("Produto")]
         public int FkProdutoCodProduto { get; set; }
 

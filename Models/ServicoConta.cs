@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelWEBAPI
 {
     public class ServicoConta
     {
+        [Key]
         [ForeignKey("Servico")]
         public int FkServicoCodServico { get; set; }
 
