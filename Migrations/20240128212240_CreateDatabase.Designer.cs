@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelWEBAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20240128205433_CreateDatabase")]
+    [Migration("20240128212240_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -146,7 +146,7 @@ namespace HotelWEBAPI.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("ValorPrato")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("CodPrato");
 
@@ -182,7 +182,7 @@ namespace HotelWEBAPI.Migrations
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<decimal>("PrecoProduto")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("CodProduto");
 
@@ -223,7 +223,7 @@ namespace HotelWEBAPI.Migrations
                         .HasColumnType("nvarchar(15)");
 
                     b.Property<decimal>("ValorQuarto")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("NumQuarto");
 
@@ -294,7 +294,7 @@ namespace HotelWEBAPI.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<decimal>("ValorServico")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("CodServico");
 

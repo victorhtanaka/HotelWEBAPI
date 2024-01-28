@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelWEBAPI
 {
@@ -9,7 +10,7 @@ namespace HotelWEBAPI
 
         [StringLength(150)]
         public required string DescServico { get; set; }
-
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal ValorServico { get; set; }
     }
 }
