@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelWEBAPI
+namespace HotelWEBAPI.Models
 {
     public class HotelContext : DbContext
     {
