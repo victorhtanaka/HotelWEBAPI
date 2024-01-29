@@ -9,12 +9,13 @@ namespace HotelWEBAPI.Controllers;
     public class QuartoController : Controller
     {
         [HttpPost]
-        public void Post([FromBody] Quarto quarto)
+        public IActionResult Post([FromBody] Quarto quarto)
         {
             using (var _context = new HotelContext())
             {
                 _context.Quartos.Add(quarto);
                 _context.SaveChanges();
+                return Ok(quarto);
             }
         }
 

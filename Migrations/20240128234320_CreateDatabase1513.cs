@@ -76,7 +76,7 @@ namespace HotelWEBAPI.Migrations
                 columns: table => new
                 {
                     NumQuarto = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("SqlServer:Identity", "1, 100"),
                     TipoQuarto = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     Adaptado = table.Column<bool>(type: "bit", nullable: false),
                     ValorQuarto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
