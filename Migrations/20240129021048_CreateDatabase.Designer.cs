@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelWEBAPI.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20240129003302_CreateDatabase")]
+    [Migration("20240129021048_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -88,14 +88,15 @@ namespace HotelWEBAPI.Migrations
             modelBuilder.Entity("HotelWEBAPI.Models.FilialQuarto", b =>
                 {
                     b.Property<int>("FkFilialCodFilial")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FkFilialCodFilial"));
 
                     b.Property<int>("FkQuartoNumQuarto")
                         .HasColumnType("int");
 
                     b.HasKey("FkFilialCodFilial");
-
-                    b.HasIndex("FkQuartoNumQuarto");
 
                     b.ToTable("FiliaisQuartos");
                 });
@@ -127,8 +128,6 @@ namespace HotelWEBAPI.Migrations
 
                     b.HasKey("CodFuncionario");
 
-                    b.HasIndex("FkFilialCodFilial");
-
                     b.ToTable("Funcionarios");
                 });
 
@@ -156,14 +155,15 @@ namespace HotelWEBAPI.Migrations
             modelBuilder.Entity("HotelWEBAPI.Models.PratoConta", b =>
                 {
                     b.Property<int>("FkPratoCodPrato")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FkPratoCodPrato"));
 
                     b.Property<int>("FkReservaContaCodReserva")
                         .HasColumnType("int");
 
                     b.HasKey("FkPratoCodPrato");
-
-                    b.HasIndex("FkReservaContaCodReserva");
 
                     b.ToTable("PratosContas");
                 });
@@ -192,14 +192,15 @@ namespace HotelWEBAPI.Migrations
             modelBuilder.Entity("HotelWEBAPI.Models.ProdutoConta", b =>
                 {
                     b.Property<int>("FkProdutoCodProduto")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FkProdutoCodProduto"));
 
                     b.Property<int>("FkReservaContaCodReserva")
                         .HasColumnType("int");
 
                     b.HasKey("FkProdutoCodProduto");
-
-                    b.HasIndex("FkReservaContaCodReserva");
 
                     b.ToTable("ProdutosContas");
                 });
@@ -244,14 +245,11 @@ namespace HotelWEBAPI.Migrations
                     b.Property<bool>("CamaAdicional")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CodConta")
-                        .HasColumnType("int");
+                    b.Property<DateOnly>("DataCheckin")
+                        .HasColumnType("date");
 
-                    b.Property<DateTime>("DataCheckin")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataCheckout")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataCheckout")
+                        .HasColumnType("date");
 
                     b.Property<int>("FkClienteCodCliente")
                         .HasColumnType("int");
@@ -273,12 +271,6 @@ namespace HotelWEBAPI.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("CodReserva");
-
-                    b.HasIndex("FkClienteCodCliente");
-
-                    b.HasIndex("FkFuncionarioCodFuncionario");
-
-                    b.HasIndex("FkQuartoNumQuarto");
 
                     b.ToTable("ReservasContas");
                 });
@@ -307,130 +299,17 @@ namespace HotelWEBAPI.Migrations
             modelBuilder.Entity("HotelWEBAPI.Models.ServicoConta", b =>
                 {
                     b.Property<int>("FkServicoCodServico")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FkServicoCodServico"));
 
                     b.Property<int>("FkReservaContaCodReserva")
                         .HasColumnType("int");
 
                     b.HasKey("FkServicoCodServico");
 
-                    b.HasIndex("FkReservaContaCodReserva");
-
                     b.ToTable("ServicosContas");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.FilialQuarto", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.Filial", "Filial")
-                        .WithMany()
-                        .HasForeignKey("FkFilialCodFilial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.Quarto", "Quarto")
-                        .WithMany()
-                        .HasForeignKey("FkQuartoNumQuarto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Filial");
-
-                    b.Navigation("Quarto");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.Funcionario", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.Filial", "Filial")
-                        .WithMany()
-                        .HasForeignKey("FkFilialCodFilial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Filial");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.PratoConta", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.Prato", "Prato")
-                        .WithMany()
-                        .HasForeignKey("FkPratoCodPrato")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.ReservaConta", "ReservaConta")
-                        .WithMany()
-                        .HasForeignKey("FkReservaContaCodReserva")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Prato");
-
-                    b.Navigation("ReservaConta");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.ProdutoConta", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("FkProdutoCodProduto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.ReservaConta", "ReservaConta")
-                        .WithMany()
-                        .HasForeignKey("FkReservaContaCodReserva")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Produto");
-
-                    b.Navigation("ReservaConta");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.ReservaConta", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("FkClienteCodCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.Funcionario", "Funcionario")
-                        .WithMany()
-                        .HasForeignKey("FkFuncionarioCodFuncionario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.Quarto", "Quarto")
-                        .WithMany()
-                        .HasForeignKey("FkQuartoNumQuarto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Funcionario");
-
-                    b.Navigation("Quarto");
-                });
-
-            modelBuilder.Entity("HotelWEBAPI.Models.ServicoConta", b =>
-                {
-                    b.HasOne("HotelWEBAPI.Models.ReservaConta", "ReservaConta")
-                        .WithMany()
-                        .HasForeignKey("FkReservaContaCodReserva")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelWEBAPI.Models.Servico", "Servico")
-                        .WithMany()
-                        .HasForeignKey("FkServicoCodServico")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ReservaConta");
-
-                    b.Navigation("Servico");
                 });
 #pragma warning restore 612, 618
         }
