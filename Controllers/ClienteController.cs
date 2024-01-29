@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using HotelWEBAPI.Models;
 
+
 namespace HotelWEBAPI.Controllers;
 
     [Route("api/[controller]")]
