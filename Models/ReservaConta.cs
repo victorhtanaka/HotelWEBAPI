@@ -23,7 +23,7 @@ namespace HotelWEBAPI.Models
         public int FkClienteCodCliente { get; set; }
 
         [ForeignKey("Quarto")]
-        public int FkQuartoNumQuarto { get; set; }
+        public int FkQuartoCodQuarto { get; set; }
 
         [ForeignKey("Funcionario")]
         public int FkFuncionarioCodFuncionario { get; set; }
