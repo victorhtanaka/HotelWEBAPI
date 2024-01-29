@@ -203,16 +203,19 @@ namespace HotelWEBAPI.Migrations
 
             modelBuilder.Entity("HotelWEBAPI.Models.Quarto", b =>
                 {
-                    b.Property<int>("NumQuarto")
+                    b.Property<int>("CodQuarto")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NumQuarto"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodQuarto"));
 
                     b.Property<bool>("Adaptado")
                         .HasColumnType("bit");
 
                     b.Property<int>("CapacidadeQuarto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumQuarto")
                         .HasColumnType("int");
 
                     b.Property<string>("TipoQuarto")
@@ -222,7 +225,7 @@ namespace HotelWEBAPI.Migrations
                     b.Property<decimal>("ValorQuarto")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.HasKey("NumQuarto");
+                    b.HasKey("CodQuarto");
 
                     b.ToTable("Quartos");
                 });

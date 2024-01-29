@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HotelWEBAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDatabase1513 : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -75,8 +75,9 @@ namespace HotelWEBAPI.Migrations
                 name: "Quartos",
                 columns: table => new
                 {
-                    NumQuarto = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 100"),
+                    CodQuarto = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NumQuarto = table.Column<int>(type: "int", nullable: false),
                     TipoQuarto = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     Adaptado = table.Column<bool>(type: "bit", nullable: false),
                     ValorQuarto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -84,7 +85,7 @@ namespace HotelWEBAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Quartos", x => x.NumQuarto);
+                    table.PrimaryKey("PK_Quartos", x => x.CodQuarto);
                 });
 
             migrationBuilder.CreateTable(
@@ -143,7 +144,7 @@ namespace HotelWEBAPI.Migrations
                         name: "FK_FiliaisQuartos_Quartos_FkQuartoNumQuarto",
                         column: x => x.FkQuartoNumQuarto,
                         principalTable: "Quartos",
-                        principalColumn: "NumQuarto",
+                        principalColumn: "CodQuarto",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -183,7 +184,7 @@ namespace HotelWEBAPI.Migrations
                         name: "FK_ReservasContas_Quartos_FkQuartoNumQuarto",
                         column: x => x.FkQuartoNumQuarto,
                         principalTable: "Quartos",
-                        principalColumn: "NumQuarto",
+                        principalColumn: "CodQuarto",
                         onDelete: ReferentialAction.Cascade);
                 });
 

@@ -5,6 +5,7 @@ namespace HotelWEBAPI.Models
     public class Quarto
     {
         [Key]
+        public int CodQuarto { get; set; }
         public int NumQuarto { get; set; }
 
         [StringLength(15)]

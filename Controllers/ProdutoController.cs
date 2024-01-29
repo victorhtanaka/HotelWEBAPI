@@ -8,92 +8,81 @@ namespace HotelWEBAPI.Controllers;
 [ApiController]
 public class ProdutoController : Controller
 {
-    private readonly HotelContext _context;
-
-    public ProdutoController(HotelContext context)
-    {
-        _context = context;
-    }
 
     // GET: api/Produto
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
+    public IActionResult GetProdutos()
     {
-        return await _context.Produtos.ToListAsync();
+        using (var _context = new HotelContext())
+        {
+            return Ok(_context.Produtos.ToList());
+        }
+        
     }
 
     // GET: api/Produto/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Produto>> GetProduto(int id)
+    public IActionResult GetProduto(int id)
     {
-        var produto = await _context.Produtos.FindAsync(id);
-
-        if (produto == null)
+        using (var _context = new HotelContext())
         {
-            return NotFound();
-        }
+            var produto = _context.Produtos.FirstOrDefault(e => e.CodProduto == id);
 
-        return produto;
+            if (produto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(produto);
+        }
     }
 
     // POST: api/Produto
     [HttpPost]
-    public async Task<ActionResult<Produto>> PostProduto(Produto produto)
+    public IActionResult PostProduto(Produto produto)
     {
-        _context.Produtos.Add(produto);
-        await _context.SaveChangesAsync();
+        using (var _context = new HotelContext())
+        {
+            _context.Produtos.Add(produto);
+            _context.SaveChanges();
 
-        return CreatedAtAction(nameof(GetProduto), new { id = produto.CodProduto }, produto);
+            return Ok($"O produto de nome '{produto.NomeProduto}' foi criado com sucesso");
+        }
     }
 
     // PUT: api/Produto/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutProduto(int id, Produto produto)
+    public IActionResult PutProduto(int id, [FromBody] Produto produto)
     {
-        if (id != produto.CodProduto)
+        using (var _context = new HotelContext())
         {
-            return BadRequest();
-        }
-
-        _context.Entry(produto).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!ProdutoExists(id))
+            var item = _context.Produtos.FirstOrDefault(e => e.CodProduto == id);
+            if (item == null)
             {
-                return NotFound();
+                return BadRequest("Produto não encontrado");
             }
-            else
-            {
-                throw;
-            }
+            _context.Entry(item).CurrentValues.SetValues(produto);
+            _context.SaveChanges();
+            return Ok($"Produto de id '{id}' editado com sucesso");
         }
-
-        return NoContent();
     }
 
     // DELETE: api/Produto/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteProduto(int id)
+    public IActionResult DeleteProduto(int id)
     {
-        var produto = await _context.Produtos.FindAsync(id);
+        using var _context = new HotelContext();
+        var produto = _context.Produtos.FirstOrDefault(e => e.CodProduto == id);
         if (produto == null)
         {
-            return NotFound();
+            return NotFound($"Produto com id '{id}' não encontrado");
         }
 
+        string nome = produto.NomeProduto;
         _context.Produtos.Remove(produto);
-        await _context.SaveChangesAsync();
+        _context.SaveChanges();
 
-        return NoContent();
+        return Ok($"O produto com nome '{nome}' foi deletado");
     }
 
-    private bool ProdutoExists(int id)
-    {
-        return _context.Produtos.Any(e => e.CodProduto == id);
-    }
 }

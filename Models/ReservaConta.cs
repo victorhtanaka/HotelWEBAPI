@@ -8,14 +8,14 @@ namespace HotelWEBAPI.Models
         [Key]
         public int CodReserva { get; set; }
 
-        public DateTime DataCheckin { get; set; }
+        public DateOnly DataCheckin { get; set; }
 
         public bool StatusReserva { get; set; }
 
         [StringLength(30)]
         public string? TipoPagamento { get; set; }
 
-        public DateTime DataCheckout { get; set; }
+        public DateOnly DataCheckout { get; set; }
 
         public bool CamaAdicional { get; set; }
 
@@ -27,15 +27,7 @@ namespace HotelWEBAPI.Models
 
         [ForeignKey("Funcionario")]
         public int FkFuncionarioCodFuncionario { get; set; }
-        
-        public int CodConta { get; set; }
 
         public bool Pago { get; set; }
-
-        public virtual Cliente? Cliente { get; set; }
-
-        public virtual Quarto? Quarto { get; set; }
-
-        public virtual Funcionario? Funcionario { get; set; }
     }
 }

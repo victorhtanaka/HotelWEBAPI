@@ -22,6 +22,5 @@ namespace HotelWEBAPI.Models
         [ForeignKey("Filial")]
         public int FkFilialCodFilial { get; set; }
 
-        public virtual Filial? Filial { get; set; }
     }
 }
