@@ -8,6 +8,7 @@ namespace HotelWEBAPI.Models
         [Key]
         [ForeignKey("Filial")]
         public int FkFilialCodFilial { get; set; }
+        
         [ForeignKey("Quarto")]
         public int FkQuartoNumQuarto { get; set; }
     }

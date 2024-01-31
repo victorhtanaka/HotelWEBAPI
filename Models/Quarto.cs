@@ -6,12 +6,14 @@ namespace HotelWEBAPI.Models
     {
         [Key]
         public int CodQuarto { get; set; }
+        
         public int NumQuarto { get; set; }
 
         [StringLength(15)]
         public string? TipoQuarto { get; set; }
 
         public bool Adaptado { get; set; }
+
         [Column(TypeName = "decimal(18, 2)")]
         public decimal ValorQuarto { get; set; }
 

@@ -10,6 +10,7 @@ namespace HotelWEBAPI.Models
 
         [StringLength(150)]
         public required string DescServico { get; set; }
+        
         [Column(TypeName = "decimal(18, 2)")]
         public decimal ValorServico { get; set; }
     }

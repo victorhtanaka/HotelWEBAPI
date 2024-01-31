@@ -28,6 +28,7 @@ namespace HotelWEBAPI.Controllers;
                 return _context.Clientes.ToList();
             }
         }
+        
         [HttpGet("{CodCliente}")]
         public IActionResult Get(int CodCliente)
         {
@@ -41,6 +42,7 @@ namespace HotelWEBAPI.Controllers;
                 return new ObjectResult(item);
             }
         }
+
         [HttpPut("{CodCliente}")]
         public IActionResult Put(int CodCliente,[FromBody] Cliente Cliente)
         {
@@ -57,6 +59,7 @@ namespace HotelWEBAPI.Controllers;
                 return Ok(Cliente);
             }
         }
+
         [HttpDelete("{CodCliente}")]
         public IActionResult Delete(int CodCliente)
         {

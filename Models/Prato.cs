@@ -11,6 +11,7 @@ namespace HotelWEBAPI.Models
         [Required]
         [StringLength(100)]
         public required string NomePrato { get; set; }
+        
         [Column(TypeName = "decimal(18, 2)")]
         public decimal ValorPrato { get; set; }
     }
